@@ -40,9 +40,15 @@ namespace Game4Freak.ExperienceUI
             UnturnedPlayerEvents.OnPlayerUpdateExperience -= onExperienceUpdated;
         }
 
+        public override TranslationList DefaultTranslations =>
+            new TranslationList()
+            {
+                {"experience_text", "<color=white>{0} exp</color>"},
+            };
+
         private void onPlayerConnected(UnturnedPlayer player)
         {
-            EffectManager.sendUIEffect(Configuration.Instance.UIID, Configuration.Instance.key, player.CSteamID, true, player.Experience.ToString());
+            EffectManager.sendUIEffect(Configuration.Instance.UIID, Configuration.Instance.key, player.CSteamID, true, Translate("experience_text", player.Experience.ToString()));
         }
 
         private void onExperienceUpdated(UnturnedPlayer player, uint experience)
