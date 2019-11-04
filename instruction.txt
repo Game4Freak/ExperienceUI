@@ -1,0 +1,30 @@
+Setup:
+
+1) Setting up a buildZone:
+
+<?xml version="1.0" encoding="utf-8"?>
+<BuildLimiterConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <message>You cant build here</message>
+  <messageColor>red</messageColor>
+  <bypassPermission>bypassbuildlimit</bypassPermission>
+  <buildZones>
+    <buildZone name="ExampleZone">  // Name of the buildZone
+      <ids>							// List of ids
+        <id>1327</id>				// id
+      </ids>
+    </buildZone>
+  </buildZones>
+  
+</BuildLimiterConfiguration>
+
+2) Adding and setting up a zone:
+https://github.com/Game4Freak/AdvancedZones/wiki#basics
+
+3) Add the required flag:
+/zone add flag YourZoneName buildlimit
+
+3) Assigning the buildZone to your zone:
+/zone add parameter YourZoneName buildZone YourBuildZoneName
+
+Example:
+/zone add parameter YourZoneName buildZone ExampleZone
